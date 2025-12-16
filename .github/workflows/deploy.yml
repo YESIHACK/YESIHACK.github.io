@@ -31,7 +31,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          # bundler-cache: true # Disabled to avoid exit code 4 on lockfile mismatch
+      - name: Install dependencies
+        run: bundle install
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
